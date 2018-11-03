@@ -101,7 +101,7 @@ public class Fraction {
 
     /**
      * Gives a numeric approximation of the fraction.
-     * @return A double that is as good as machine of the JVM.
+     * @return A double that is as good as the machine precision of the JVM. For example, 1/7 is approx. 0.142857.
      */
     public double getNumericApproximation() {
         return ((double) this.fractNumer / (double) this.fractDenom);
@@ -126,6 +126,7 @@ public class Fraction {
             }
             currDenom++;
         }
+        // Can't convert Object[] to Fraction[], so can't do "return fractList.toArray()"
         Fraction[] fractArray = fractList.toArray(new Fraction[0]); // https://shipilev.net/blog/2016/arrays-wisdom-ancients/
         return fractArray;
     }
@@ -154,7 +155,9 @@ public class Fraction {
             String exceptionMessage = "Denominator 0 is not allowed.";
             throw new IllegalArgumentException(exceptionMessage);
         }
-        long gcdNumDen = NumberTheoreticFunctionsCalculator.euclideanGCD(numerator, denominator);
+        long gcdNumDen = 1;
+// TODO: Implement gcd(long a, long b) so then you can do
+//      long gcdNumDen := gcd(numerator, denominator)
         if (denominator < 0) {
             gcdNumDen *= -1;
         }

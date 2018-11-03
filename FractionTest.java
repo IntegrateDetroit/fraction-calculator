@@ -308,6 +308,17 @@ public class FractionTest {
         assertEquals(expectedResult, result);
     }
 
+// Egyptian fractions: An Egyptian fraction is a sum of positive (usually) distinct unit fractions.
+// http://mathworld.wolfram.com/EgyptianFraction.html
+
+// Unit fractions: A unit fraction is a fraction with numerator 1. 
+// http://mathworld.wolfram.com/UnitFraction.html
+
+// For example: 7/8 = 1/2 + 1/4 + 1/8
+
+// The "greedy algorithm" tries to always use the biggest fraction at each step
+// Then, for example, 7/8 = 1/2 + 1/3 + 1/24
+
     /**
      * Test of getEgyptianFractions method, of class Fraction.
      */
